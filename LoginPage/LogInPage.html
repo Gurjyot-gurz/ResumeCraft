@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Log In | ResumeCraft</title>
+  <meta name="description" content="Log in to your ResumeCraft account to build resumes, get analyzed and connect with recruiters." />
+  <link rel="stylesheet" href="LogInPage.css" />
+</head>
+<body>
+  <div class="page">
+    <!-- Left: brand / value panel -->
+    <aside class="brand-panel">
+      <div class="logo">
+        <span class="logo-mark">R</span>
+        <span class="logo-text">ResumeCraft</span>
+      </div>
+      <h1>Your career, one source of truth.</h1>
+      <p class="tagline">
+        Build standout resumes, get them analyzed, and connect directly with recruiters and hiring teams.
+      </p>
+      <ul class="features">
+        <li>Resume builder &amp; analyzer</li>
+        <li>Track every application in one place</li>
+        <li>Get discovered by recruiters</li>
+      </ul>
+    </aside>
+
+    <!-- Right: log-in form -->
+    <main class="form-panel">
+      <form id="loginForm" class="card" novalidate>
+        <header class="card-header">
+          <h2>Welcome back</h2>
+          <p>Log in to your ResumeCraft account.</p>
+        </header>
+
+        <!-- Email -->
+        <div class="field">
+          <label for="email">Email address <span class="req">*</span></label>
+          <input type="email" id="email" name="email" autocomplete="email" placeholder="you@example.com" required />
+          <small class="error" aria-live="polite"></small>
+        </div>
+
+        <!-- Password -->
+        <div class="field">
+          <label for="password">Password <span class="req">*</span></label>
+          <div class="password-wrap">
+            <input type="password" id="password" name="password" autocomplete="current-password" placeholder="Enter your password" required />
+            <button type="button" class="toggle-pw" data-target="password" aria-label="Show password">Show</button>
+          </div>
+          <small class="error" aria-live="polite"></small>
+        </div>
+
+        <!-- Captcha -->
+        <div class="field">
+          <label for="captcha">Security check <span class="req">*</span></label>
+          <div class="captcha-row">
+            <div class="captcha-box" id="captchaBox" aria-live="polite"></div>
+            <button type="button" class="captcha-refresh" id="captchaRefresh" aria-label="Refresh captcha">↻</button>
+          </div>
+          <input type="text" id="captcha" name="captcha" autocomplete="off" placeholder="Type the characters above" required />
+          <small class="error" aria-live="polite"></small>
+        </div>
+
+        <!-- Remember me + forgot password -->
+        <div class="field row remember">
+          <label class="check">
+            <input type="checkbox" id="remember" name="remember" />
+            <span>Remember me on this device</span>
+          </label>
+          <a href="#" class="forgot">Forgot password?</a>
+        </div>
+
+        <button type="submit" class="btn-primary" id="submitBtn">Log in</button>
+
+        <p class="switch">Don't have an account? <a href="../SignUpPage/SignUpPage.html">Sign up</a></p>
+      </form>
+
+      <!-- Success message -->
+      <div class="card success" id="successBox" hidden>
+        <div class="tick">&#10003;</div>
+        <h2>Welcome back!</h2>
+        <p id="successMsg"></p>
+      </div>
+    </main>
+  </div>
+
+  <script src="LogInPage.js"></script>
+</body>
+</html>

@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sign Up | ResumeCraft</title>
+  <meta name="description" content="Create your ResumeCraft account to build resumes, get analyzed and connect with recruiters." />
+  <link rel="stylesheet" href="SignUpPage.css" />
+</head>
+<body>
+  <div class="page">
+    <!-- Left: brand / value panel -->
+    <aside class="brand-panel">
+      <div class="logo">
+        <span class="logo-mark">R</span>
+        <span class="logo-text">ResumeCraft</span>
+      </div>
+      <h1>Your career, one source of truth.</h1>
+      <p class="tagline">
+        Build standout resumes, get them analyzed, and connect directly with recruiters and hiring teams.
+      </p>
+      <ul class="features">
+        <li>Resume builder &amp; analyzer</li>
+        <li>Track every application in one place</li>
+        <li>Get discovered by recruiters</li>
+      </ul>
+    </aside>
+
+    <!-- Right: sign-up form -->
+    <main class="form-panel">
+      <form id="signupForm" class="card" novalidate>
+        <header class="card-header">
+          <h2>Create your account</h2>
+          <p>Candidate sign-up &mdash; it takes less than a minute.</p>
+        </header>
+
+        <!-- Name -->
+        <div class="row three">
+          <div class="field">
+            <label for="firstName">First name <span class="req">*</span></label>
+            <input type="text" id="firstName" name="firstName" autocomplete="given-name" placeholder="Aarav" required />
+            <small class="error" aria-live="polite"></small>
+          </div>
+          <div class="field">
+            <label for="middleName">Middle name <span class="opt">(optional)</span></label>
+            <input type="text" id="middleName" name="middleName" autocomplete="additional-name" placeholder="Kumar" />
+            <small class="error" aria-live="polite"></small>
+          </div>
+          <div class="field">
+            <label for="lastName">Last name <span class="req">*</span></label>
+            <input type="text" id="lastName" name="lastName" autocomplete="family-name" placeholder="Sharma" required />
+            <small class="error" aria-live="polite"></small>
+          </div>
+        </div>
+
+        <!-- Email -->
+        <div class="field">
+          <label for="email">Email address <span class="req">*</span></label>
+          <input type="email" id="email" name="email" autocomplete="email" placeholder="you@example.com" required />
+          <small class="error" aria-live="polite"></small>
+        </div>
+
+        <!-- Phone -->
+        <div class="field">
+          <label for="phone">Phone number <span class="req">*</span></label>
+          <div class="phone-group">
+            <select id="countryCode" name="countryCode" aria-label="Country code">
+              <option value="+91" selected>+91 (IN)</option>
+              <option value="+1">+1 (US/CA)</option>
+              <option value="+44">+44 (UK)</option>
+              <option value="+61">+61 (AU)</option>
+              <option value="+49">+49 (DE)</option>
+              <option value="+33">+33 (FR)</option>
+              <option value="+65">+65 (SG)</option>
+              <option value="+971">+971 (AE)</option>
+              <option value="+81">+81 (JP)</option>
+              <option value="+86">+86 (CN)</option>
+            </select>
+            <input type="tel" id="phone" name="phone" autocomplete="tel-national" inputmode="numeric" placeholder="9876543210" required />
+          </div>
+          <small class="error" aria-live="polite"></small>
+        </div>
+
+        <!-- Passwords -->
+        <div class="row two">
+          <div class="field">
+            <label for="password">Password <span class="req">*</span></label>
+            <div class="password-wrap">
+              <input type="password" id="password" name="password" autocomplete="new-password" placeholder="Create a password" required />
+              <button type="button" class="toggle-pw" data-target="password" aria-label="Show password">Show</button>
+            </div>
+            <div class="strength" id="strength" aria-hidden="true">
+              <span></span><span></span><span></span><span></span>
+            </div>
+            <small class="hint" id="strengthText">Min. 8 characters with upper, lower, number &amp; symbol.</small>
+            <small class="error" aria-live="polite"></small>
+          </div>
+          <div class="field">
+            <label for="confirmPassword">Confirm password <span class="req">*</span></label>
+            <div class="password-wrap">
+              <input type="password" id="confirmPassword" name="confirmPassword" autocomplete="new-password" placeholder="Re-enter password" required />
+              <button type="button" class="toggle-pw" data-target="confirmPassword" aria-label="Show password">Show</button>
+            </div>
+            <small class="error" aria-live="polite"></small>
+          </div>
+        </div>
+
+        <!-- Candidate level -->
+        <div class="field">
+          <label for="candidateLevel">Candidate level <span class="req">*</span></label>
+          <select id="candidateLevel" name="candidateLevel" required>
+            <option value="" selected disabled>Select your level</option>
+            <optgroup label="Starting out">
+              <option value="student">Student / Intern</option>
+              <option value="fresher">Fresher (0 years)</option>
+              <option value="graduate">Graduate / Recent Graduate</option>
+            </optgroup>
+            <optgroup label="Early career">
+              <option value="entry">Entry Level (0&ndash;2 years)</option>
+              <option value="junior">Junior (1&ndash;3 years)</option>
+            </optgroup>
+            <optgroup label="Experienced">
+              <option value="mid">Mid Level (3&ndash;5 years)</option>
+              <option value="senior">Senior (5&ndash;8 years)</option>
+              <option value="professional">Experienced Professional (8+ years)</option>
+              <option value="lead">Team Lead / Manager</option>
+              <option value="executive">Director / Executive</option>
+            </optgroup>
+            <optgroup label="Other">
+              <option value="career-switcher">Career Switcher</option>
+              <option value="freelancer">Freelancer / Consultant</option>
+              <option value="returning">Returning After a Career Break</option>
+            </optgroup>
+          </select>
+          <small class="error" aria-live="polite"></small>
+        </div>
+
+        <!-- Resume Upload -->
+        <div class="field">
+          <label for="resume">Upload Resume <span class="req">*</span></label>
+          <div class="file-upload" id="resumeUpload">
+            <input type="file" id="resume" name="resume" accept=".pdf,.doc,.docx" required hidden />
+            <div class="file-upload-content">
+              <svg class="upload-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                <polyline points="17 8 12 3 7 8" />
+                <line x1="12" y1="3" x2="12" y2="15" />
+              </svg>
+              <p class="upload-text">Drag & drop your resume here, or <span class="upload-link">browse</span></p>
+              <p class="upload-hint">PDF, DOC, or DOCX · Max 20MB</p>
+            </div>
+            <div class="file-preview" id="resumePreview" hidden>
+              <svg class="file-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                <polyline points="14 2 14 8 20 8" />
+                <line x1="16" y1="13" x2="8" y2="13" />
+                <line x1="16" y1="17" x2="8" y2="17" />
+                <polyline points="10 9 9 9 8 9" />
+              </svg>
+              <div class="file-info">
+                <span class="file-name" id="resumeFileName"></span>
+                <span class="file-size" id="resumeFileSize"></span>
+              </div>
+              <button type="button" class="file-remove" id="resumeRemove" aria-label="Remove file">✕</button>
+            </div>
+          </div>
+          <small class="error" aria-live="polite"></small>
+        </div>
+
+        <!-- Terms -->
+        <div class="field checkbox">
+          <label class="check">
+            <input type="checkbox" id="terms" name="terms" required />
+            <span>I agree to the <a href="#" tabindex="0">Terms of Service</a> and <a href="#" tabindex="0">Privacy Policy</a>.</span>
+          </label>
+          <small class="error" aria-live="polite"></small>
+        </div>
+
+        <button type="submit" class="btn-primary" id="submitBtn">Create account</button>
+
+        <p class="switch">Already have an account? <a href="../LoginPage/LogInPage.html">Log in</a></p>
+      </form>
+
+      <!-- Success message -->
+      <div class="card success" id="successBox" hidden>
+        <div class="tick">&#10003;</div>
+        <h2>Welcome to ResumeCraft!</h2>
+        <p id="successMsg"></p>
+      </div>
+    </main>
+  </div>
+
+  <script src="SignUpPage.js"></script>
+</body>
+</html>
